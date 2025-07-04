@@ -110,4 +110,32 @@ public class Shipxy {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         return postMethod("GetAreaShip", paramMap);
     }
+
+    /**
+     * 1船舶查询-1.5船舶船籍查询
+     * https://hiiau7lsqq.feishu.cn/wiki/Ko5gw1o0ZiMQankWEAscSMoin7g
+     * @param key 授权码：必填，船讯网授权码，验证服务权限
+     * @param mmsi 船舶mmsi编号：必填，船舶mmsi编号
+     * @return
+     */
+    public static JSONObject GetShipRegistry(String key, Integer mmsi) {
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("key", key);
+        paramMap.put("mmsi", mmsi);
+        return getMethod("GetShipRegistry", paramMap);
+    }
+
+    /**
+     * 1船舶查询-1.6船舶档案查询
+     * https://hiiau7lsqq.feishu.cn/wiki/Vvd2wHECliYz6okSoYucTRXvnsd
+     * @param key
+     * @param mmsi
+     * @return
+     */
+    public static JSONObject SearchShipParticular(String key, Integer mmsi) {
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("key", key);
+        paramMap.put("mmsi", mmsi);
+        return getMethod("SearchShipParticular", paramMap);
+    }
 }
