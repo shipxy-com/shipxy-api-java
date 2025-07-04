@@ -201,8 +201,25 @@ public class Shipxy {
         return getMethodJson("GetShipTrack", paramMap);
     }
 
+    /**
+     * 3历史行为-3.2船舶搭靠记录查询
+     * https://hiiau7lsqq.feishu.cn/wiki/GYrTwxfzRiQdDxkJYOWcF3kKnnf
+     * @param params
+     * @return
+     */
     public static JSONObject SearchshipApproach(SearchshipApproachParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         return getMethodJson("SearchshipApproach", paramMap);
+    }
+
+    /**
+     * 4挂靠记录-4.1船舶历史挂靠记录
+     * https://hiiau7lsqq.feishu.cn/wiki/Sv5rw61KVioV0ekq4ytcBpGgnGd
+     * @param params
+     * @return
+     */
+    public static JSONObject GetPortofCallByShip(GetPortofCallByShipParams params) {
+        Map<String, Object> paramMap = BeanUtil.beanToMap(params);
+        return getMethodJson("GetPortofCallByShip", paramMap);
     }
 }
