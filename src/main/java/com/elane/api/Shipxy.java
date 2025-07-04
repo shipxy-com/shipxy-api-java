@@ -19,12 +19,20 @@ import java.util.Map;
 public class Shipxy {
     private static String apiUrl = "https://api.shipxy.com/apicall/v3";
 
-    public static JSONObject getMethod(String methodName, Map<String, Object> paramMap) {
+    public static String getMethod(String methodName, Map<String, Object> paramMap) {
+        return HttpUtil.get(apiUrl + "/" + methodName, paramMap);
+    }
+
+    public static String postMethod(String methodName, Map<String, Object> paramMap) {
+        return HttpUtil.post(apiUrl + "/" + methodName, paramMap);
+    }
+
+    public static JSONObject getMethodJson(String methodName, Map<String, Object> paramMap) {
         String resultStr = HttpUtil.get(apiUrl + "/" + methodName, paramMap);
         return JSONUtil.parseObj(resultStr);
     }
 
-    public static JSONObject postMethod(String methodName, Map<String, Object> paramMap) {
+    public static JSONObject postMethodJson(String methodName, Map<String, Object> paramMap) {
         String resultStr = HttpUtil.post(apiUrl + "/" + methodName, paramMap);
         return JSONUtil.parseObj(resultStr);
     }
@@ -38,7 +46,7 @@ public class Shipxy {
      */
     public static JSONObject SearchShip(SearchParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
-        return postMethod("SearchShip", paramMap);
+        return postMethodJson("SearchShip", paramMap);
     }
 
     /**
@@ -53,7 +61,7 @@ public class Shipxy {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("key", key);
         paramMap.put("mmsi", mmsi);
-        return getMethod("GetSingleShip", paramMap);
+        return getMethodJson("GetSingleShip", paramMap);
     }
 
     /**
@@ -68,7 +76,7 @@ public class Shipxy {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("key", key);
         paramMap.put("mmsis", mmsis);
-        return getMethod("GetManyShip", paramMap);
+        return getMethodJson("GetManyShip", paramMap);
     }
 
     /**
@@ -83,7 +91,7 @@ public class Shipxy {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("key", key);
         paramMap.put("fleet_id", fleet_id);
-        return getMethod("GetFleetShip", paramMap);
+        return getMethodJson("GetFleetShip", paramMap);
     }
 
     /**
@@ -98,7 +106,7 @@ public class Shipxy {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("key", key);
         paramMap.put("mmsi", mmsi);
-        return getMethod("GetSurRoundingShip", paramMap);
+        return getMethodJson("GetSurRoundingShip", paramMap);
     }
 
     /**
@@ -109,7 +117,7 @@ public class Shipxy {
      */
     public static JSONObject GetAreaShip(GetAreaShipParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
-        return postMethod("GetAreaShip", paramMap);
+        return postMethodJson("GetAreaShip", paramMap);
     }
 
     /**
@@ -123,7 +131,7 @@ public class Shipxy {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("key", key);
         paramMap.put("mmsi", mmsi);
-        return getMethod("GetShipRegistry", paramMap);
+        return getMethodJson("GetShipRegistry", paramMap);
     }
 
     /**
@@ -137,7 +145,7 @@ public class Shipxy {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("key", key);
         paramMap.put("mmsi", mmsi);
-        return getMethod("SearchShipParticular", paramMap);
+        return getMethodJson("SearchShipParticular", paramMap);
     }
 
     /**
@@ -148,11 +156,28 @@ public class Shipxy {
      */
     public static JSONObject SearchPort(SearchParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
-        return getMethod("SearchPort", paramMap);
+        return getMethodJson("SearchPort", paramMap);
     }
 
+    /**
+     * 2港口查询-2.2港口当前靠泊船查询
+     * https://hiiau7lsqq.feishu.cn/wiki/KdBNwIxOhijpALkCkNXc69MKn3g
+     * @param params
+     * @return
+     */
     public static JSONObject GetBerthShips(PortParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
-        return getMethod("GetBerthShips", paramMap);
+        return getMethodJson("GetBerthShips", paramMap);
+    }
+
+    /**
+     * 2港口查询-2.3港口当前到锚船舶查询
+     * https://hiiau7lsqq.feishu.cn/wiki/WTHnwa66niA4VhkmNVXchRRSnYe
+     * @param params
+     * @return
+     */
+    public static JSONObject GetAnchorShips(PortParams params) {
+        Map<String, Object> paramMap = BeanUtil.beanToMap(params);
+        return getMethodJson("GetAnchorShips", paramMap);
     }
 }

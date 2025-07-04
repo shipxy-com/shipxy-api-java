@@ -20,7 +20,8 @@ public class Main {
 //        SearchShipParticularFn();
 
 //        SearchPortFn();
-        GetBerthShipsFn();
+//        GetBerthShipsFn();
+        GetAnchorShipsFn();
     }
 
 
@@ -85,6 +86,15 @@ public class Main {
         params.setPort_code("CNSHG");
 //        params.setShip_type(52);
         JSONObject result = Shipxy.GetBerthShips(params);
+        System.out.println(result);
+    }
+
+    public static void GetAnchorShipsFn() {
+        PortParams params = new PortParams();
+        params.setKey(key);
+        params.setPort_code("CNSHG");
+//        params.setShip_type(52);
+        JSONObject result = Shipxy.GetAnchorShips(params);
         System.out.println(result);
     }
 }
