@@ -2,9 +2,7 @@ package com.elane;
 
 import cn.hutool.json.JSONObject;
 import com.elane.api.Shipxy;
-import com.elane.params.GetAreaShipParams;
-import com.elane.params.PortParams;
-import com.elane.params.SearchParams;
+import com.elane.params.*;
 
 public class Main {
     private static String key = "484db43a65ec4f87b5b4dcc69e586bf7";
@@ -21,7 +19,9 @@ public class Main {
 
 //        SearchPortFn();
 //        GetBerthShipsFn();
-        GetAnchorShipsFn();
+//        GetAnchorShipsFn();
+//        GetETAShipsFn();
+        GetShipTrackFn();
     }
 
 
@@ -95,6 +95,26 @@ public class Main {
         params.setPort_code("CNSHG");
 //        params.setShip_type(52);
         JSONObject result = Shipxy.GetAnchorShips(params);
+        System.out.println(result);
+    }
+
+    public static void GetETAShipsFn() {
+        GetETAShipsParams params = new GetETAShipsParams();
+        params.setKey(key);
+        params.setPort_code("CNSHG");
+        params.setStart_time(1746612218);
+        params.setEnd_time(1747044218);
+        JSONObject result = Shipxy.GetETAShips(params);
+        System.out.println(result);
+    }
+
+    public static void GetShipTrackFn() {
+        GetShipTrackParams params = new GetShipTrackParams();
+        params.setKey(key);
+        params.setMmsi(477172700);
+        params.setStart_time(1746612218);
+        params.setEnd_time(1747044218);
+        JSONObject result = Shipxy.GetShipTrack(params);
         System.out.println(result);
     }
 }
