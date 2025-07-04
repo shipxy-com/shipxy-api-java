@@ -278,6 +278,12 @@ public class Shipxy {
         return getMethodJson("PlanRouteByPort", paramMap);
     }
 
+    /**
+     * 5航线规划-5.3预计到达时间(ETA)查询
+     * https://hiiau7lsqq.feishu.cn/wiki/NMxnw8fEHiRhrPkIpwTcovdfnOg
+     * @param params
+     * @return
+     */
     public static JSONObject GetSingleETAPrecise(GetSingleETAPreciseParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         return getMethodJson("GetSingleETAPrecise", paramMap);
