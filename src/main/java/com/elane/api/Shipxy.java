@@ -277,4 +277,9 @@ public class Shipxy {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         return getMethodJson("PlanRouteByPort", paramMap);
     }
+
+    public static JSONObject GetSingleETAPrecise(GetSingleETAPreciseParams params) {
+        Map<String, Object> paramMap = BeanUtil.beanToMap(params);
+        return getMethodJson("GetSingleETAPrecise", paramMap);
+    }
 }

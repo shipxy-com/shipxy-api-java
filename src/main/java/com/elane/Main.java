@@ -31,7 +31,8 @@ public class Main {
 //        GetPortofCallByPortFn();
 
 //        PlanRouteByPointFn();
-        PlanRouteByPortFn();
+//        PlanRouteByPortFn();
+        GetSingleETAPreciseFn();
     }
 
 
@@ -192,6 +193,15 @@ public class Main {
         params.setStart_port_code("CNGZG");
         params.setEnd_port_code("CNSHG");
         JSONObject result = Shipxy.PlanRouteByPort(params);
+        System.out.println(result);
+    }
+
+    public static void GetSingleETAPreciseFn() {
+        GetSingleETAPreciseParams params = new GetSingleETAPreciseParams();
+        params.setKey(key);
+        params.setMmsi(477172700);
+        params.setPort_code("CNSHG");
+        JSONObject result = Shipxy.GetSingleETAPrecise(params);
         System.out.println(result);
     }
 }
