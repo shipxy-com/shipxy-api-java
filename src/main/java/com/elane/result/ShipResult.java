@@ -109,4 +109,9 @@ public class ShipResult {
      * 最后更新时间,Unix时间戳
      */
     private Integer last_time_utc;
+
+    /**
+     * 船队
+     */
+    private String fleet_id;
 }
