@@ -46,8 +46,17 @@ public class Shipxy {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("key", key);
         paramMap.put("mmsi", mmsi);
-        String resultStr = postMethod("GetSingleShip", paramMap);
+        String resultStr = getMethod("GetSingleShip", paramMap);
         ResultOne<ShipResult> resultObj = JSONUtil.toBean(resultStr, ResultOne.class);
+        return resultObj;
+    }
+
+    public static ResultList<ShipResult> GetManyShip(String key, String mmsis) {
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("key", key);
+        paramMap.put("mmsis", mmsis);
+        String resultStr = getMethod("GetManyShip", paramMap);
+        ResultList<ShipResult> resultObj = JSONUtil.toBean(resultStr, ResultList.class);
         return resultObj;
     }
 }

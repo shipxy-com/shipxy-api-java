@@ -12,9 +12,9 @@ public class Main {
 
     public static void main(String[] args) {
 //        SearchShipFn();
-        GetSingleShipFn();
+//        GetSingleShipFn();
+        GetManyShipFn();
     }
-
 
     public static void SearchShipFn() {
         SearchShipParams params = new SearchShipParams();
@@ -27,6 +27,11 @@ public class Main {
 
     public static void GetSingleShipFn() {
         ResultOne<ShipResult> result = Shipxy.GetSingleShip(key, 413961925);
+        System.out.println(result);
+    }
+
+    public static void GetManyShipFn() {
+        ResultList<ShipResult> result = Shipxy.GetManyShip(key, "413961925,477232800,477172700");
         System.out.println(result);
     }
 }
