@@ -289,8 +289,28 @@ public class Shipxy {
         return getMethodJson("GetSingleETAPrecise", paramMap);
     }
 
+    /**
+     * 6气象天气-6.1单点海洋气象
+     * https://hiiau7lsqq.feishu.cn/wiki/AFfAwtwc1ifij6k5JQ9c2u3hnbh
+     * @param params
+     * @return
+     */
     public static JSONObject GetWeatherByPoint(GetWeatherByPointParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         return getMethodJson("GetWeatherByPoint", paramMap);
+    }
+
+    /**
+     * 6气象天气-6.2海区气象
+     * https://hiiau7lsqq.feishu.cn/wiki/EEdPwP4kqi10qjkehH5cmK2Onwc
+     * @param key 授权码：必填，船讯网授权码，验证服务权限
+     * @param weather_type 区域类型：必填，查询区域的类型：0：全部；1：沿岸；2：近海；3：远海。
+     * @return
+     */
+    public static JSONObject GetWeather(String key, Integer weather_type) {
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("key", key);
+        paramMap.put("weather_type", weather_type);
+        return getMethodJson("GetWeather", paramMap);
     }
 }

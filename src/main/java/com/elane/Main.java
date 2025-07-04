@@ -32,7 +32,10 @@ public class Main {
 
 //        PlanRouteByPointFn();
 //        PlanRouteByPortFn();
-        GetSingleETAPreciseFn();
+//        GetSingleETAPreciseFn();
+
+//        GetWeatherByPointFn();
+        GetWeatherFn();
     }
 
 
@@ -211,6 +214,11 @@ public class Main {
         params.setLng(123.58414);
         params.setLat(27.37979);
         JSONObject result = Shipxy.GetWeatherByPoint(params);
+        System.out.println(result);
+    }
+
+    public static void GetWeatherFn() {
+        JSONObject result = Shipxy.GetWeather(key, 1);
         System.out.println(result);
     }
 }
