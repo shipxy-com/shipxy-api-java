@@ -233,4 +233,9 @@ public class Shipxy {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         return getMethodJson("GetPortofCallByShipPort", paramMap);
     }
+
+    public static JSONObject GetShipStatus(GetShipStatusParams params) {
+        Map<String, Object> paramMap = BeanUtil.beanToMap(params);
+        return getMethodJson("GetShipStatus", paramMap);
+    }
 }
