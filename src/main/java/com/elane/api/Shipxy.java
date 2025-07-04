@@ -234,8 +234,19 @@ public class Shipxy {
         return getMethodJson("GetPortofCallByShipPort", paramMap);
     }
 
+    /**
+     * 4挂靠记录-4.3船舶当前挂靠信息
+     * https://hiiau7lsqq.feishu.cn/wiki/O3PRwZoAjiX3DdknudicZnVpnxH
+     * @param params
+     * @return
+     */
     public static JSONObject GetShipStatus(GetShipStatusParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         return getMethodJson("GetShipStatus", paramMap);
+    }
+
+    public static JSONObject GetPortofCallByPort(GetPortofCallByPortParams params) {
+        Map<String, Object> paramMap = BeanUtil.beanToMap(params);
+        return getMethodJson("GetPortofCallByPort", paramMap);
     }
 }
