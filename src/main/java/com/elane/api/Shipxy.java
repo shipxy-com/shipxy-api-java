@@ -313,4 +313,30 @@ public class Shipxy {
         paramMap.put("weather_type", weather_type);
         return getMethodJson("GetWeather", paramMap);
     }
+
+    /**
+     * 6气象天气-6.3全球台风-获取全球台风列表
+     * https://hiiau7lsqq.feishu.cn/wiki/PuWSw4Nteir49WkMccMcryjNnbp
+     * @param key key 授权码：必填，船讯网授权码，验证服务权限
+     * @return
+     */
+    public static JSONObject GetAllTyphoon(String key) {
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("key", key);
+        return getMethodJson("GetAllTyphoon", paramMap);
+    }
+
+    /**
+     * 6气象天气-6.3全球台风-获取单个台风信息
+     * https://hiiau7lsqq.feishu.cn/wiki/PuWSw4Nteir49WkMccMcryjNnbp
+     * @param key key 授权码：必填，船讯网授权码，验证服务权限
+     * @param typhoon_id 台风序号：必填，通过查询台风列表获得
+     * @return
+     */
+    public static JSONObject GetSingleTyphoon(String key, Integer typhoon_id) {
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("key", key);
+        paramMap.put("typhoon_id", typhoon_id);
+        return getMethodJson("GetSingleTyphoon", paramMap);
+    }
 }

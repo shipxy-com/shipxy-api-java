@@ -35,7 +35,9 @@ public class Main {
 //        GetSingleETAPreciseFn();
 
 //        GetWeatherByPointFn();
-        GetWeatherFn();
+//        GetWeatherFn();
+//        GetAllTyphoonFn();
+        GetSingleTyphoonFn();
     }
 
 
@@ -219,6 +221,16 @@ public class Main {
 
     public static void GetWeatherFn() {
         JSONObject result = Shipxy.GetWeather(key, 1);
+        System.out.println(result);
+    }
+
+    public static void GetAllTyphoonFn() {
+        JSONObject result = Shipxy.GetAllTyphoon(key);
+        System.out.println(result);
+    }
+
+    public static void GetSingleTyphoonFn() {
+        JSONObject result = Shipxy.GetSingleTyphoon(key, 2477927);
         System.out.println(result);
     }
 }
