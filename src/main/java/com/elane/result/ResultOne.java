@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class ResultObj<T> {
+public class ResultOne<T> {
     /**
      * 状态
      */
@@ -15,11 +15,7 @@ public class ResultObj<T> {
      */
     private String msg;
     /**
-     * 总数
-     */
-    private Integer total;
-    /**
      * 数据
      */
-    private List<T> data;
+    private T data;
 }

@@ -3,8 +3,7 @@ package com.elane.result;
 import lombok.Data;
 
 @Data
-public class SearcheShipResult
-{
+public class SearcheShipResult {
     /**
      * 匹配类型，关键字匹配结果的类型，匹配类型:1：船名；2：呼号；3：mmsi；5：imo
      */
