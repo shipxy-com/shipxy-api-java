@@ -25,7 +25,8 @@ public class Main {
 //        GetShipTrackFn();
 //        SearchshipApproachFn();
 
-        GetPortofCallByShipFn();
+//        GetPortofCallByShipFn();
+        GetPortofCallByShipPortFn();
     }
 
 
@@ -139,6 +140,17 @@ public class Main {
         params.setStart_time(1751007589);
         params.setEnd_time(1751440378);
         JSONObject result = Shipxy.GetPortofCallByShip(params);
+        System.out.println(result);
+    }
+
+    public static void GetPortofCallByShipPortFn() {
+        GetPortofCallByShipPortParams params = new GetPortofCallByShipPortParams();
+        params.setKey(key);
+        params.setMmsi(477172700);
+        params.setPort_code("CNSHG");
+        params.setStart_time(1751007589);
+        params.setEnd_time(1751440378);
+        JSONObject result = Shipxy.GetPortofCallByShipPort(params);
         System.out.println(result);
     }
 }

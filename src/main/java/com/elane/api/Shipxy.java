@@ -222,4 +222,15 @@ public class Shipxy {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         return getMethodJson("GetPortofCallByShip", paramMap);
     }
+
+    /**
+     * 4挂靠记录-4.2船舶挂靠指定港口记录
+     * https://hiiau7lsqq.feishu.cn/wiki/R01xw8GxYiPd08kGhDeckVojnSC
+     * @param params
+     * @return
+     */
+    public static JSONObject GetPortofCallByShipPort(GetPortofCallByShipPortParams params) {
+        Map<String, Object> paramMap = BeanUtil.beanToMap(params);
+        return getMethodJson("GetPortofCallByShipPort", paramMap);
+    }
 }
