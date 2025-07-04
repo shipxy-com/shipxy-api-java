@@ -245,8 +245,36 @@ public class Shipxy {
         return getMethodJson("GetShipStatus", paramMap);
     }
 
+    /**
+     * 4挂靠记录-4.4港口挂靠历史船舶
+     * https://hiiau7lsqq.feishu.cn/wiki/G9BDwzNPqiXdyckzFrBctxYUnHd
+     * @param params
+     * @return
+     */
     public static JSONObject GetPortofCallByPort(GetPortofCallByPortParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         return getMethodJson("GetPortofCallByPort", paramMap);
+    }
+
+    /**
+     * 5航线规划-5.1点到点航线规划
+     * https://hiiau7lsqq.feishu.cn/wiki/A3UBwJ7pViozTskSFwPcJ4Ldnze
+     * @param params
+     * @return
+     */
+    public static JSONObject PlanRouteByPoint(PlanRouteByPointParams params) {
+        Map<String, Object> paramMap = BeanUtil.beanToMap(params);
+        return getMethodJson("PlanRouteByPoint", paramMap);
+    }
+
+    /**
+     * 5航线规划-5.2港到港航线规划
+     * https://hiiau7lsqq.feishu.cn/wiki/NpsbwNzWWiJRy2k79bscVljTntd
+     * @param params
+     * @return
+     */
+    public static JSONObject PlanRouteByPort(PlanRouteByPortParams params) {
+        Map<String, Object> paramMap = BeanUtil.beanToMap(params);
+        return getMethodJson("PlanRouteByPort", paramMap);
     }
 }

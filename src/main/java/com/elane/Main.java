@@ -28,7 +28,10 @@ public class Main {
 //        GetPortofCallByShipFn();
 //        GetPortofCallByShipPortFn();
 //        GetShipStatusFn();
-        GetPortofCallByPortFn();
+//        GetPortofCallByPortFn();
+
+//        PlanRouteByPointFn();
+        PlanRouteByPortFn();
     }
 
 
@@ -171,6 +174,24 @@ public class Main {
         params.setStart_time(1751007589);
         params.setEnd_time(1751440378);
         JSONObject result = Shipxy.GetPortofCallByPort(params);
+        System.out.println(result);
+    }
+
+    public static void PlanRouteByPointFn() {
+        PlanRouteByPointParams params = new PlanRouteByPointParams();
+        params.setKey(key);
+        params.setStart_point("113.571144,22.844316");
+        params.setEnd_point("121.58414,31.37979");
+        JSONObject result = Shipxy.PlanRouteByPoint(params);
+        System.out.println(result);
+    }
+
+    public static void PlanRouteByPortFn() {
+        PlanRouteByPortParams params = new PlanRouteByPortParams();
+        params.setKey(key);
+        params.setStart_port_code("CNGZG");
+        params.setEnd_port_code("CNSHG");
+        JSONObject result = Shipxy.PlanRouteByPort(params);
         System.out.println(result);
     }
 }
