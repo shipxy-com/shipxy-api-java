@@ -204,4 +204,13 @@ public class Main {
         JSONObject result = Shipxy.GetSingleETAPrecise(params);
         System.out.println(result);
     }
+
+    public static void GetWeatherByPointFn() {
+        GetWeatherByPointParams params = new GetWeatherByPointParams();
+        params.setKey(key);
+        params.setLng(123.58414);
+        params.setLat(27.37979);
+        JSONObject result = Shipxy.GetWeatherByPoint(params);
+        System.out.println(result);
+    }
 }

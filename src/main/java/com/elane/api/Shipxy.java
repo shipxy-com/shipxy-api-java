@@ -288,4 +288,9 @@ public class Shipxy {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         return getMethodJson("GetSingleETAPrecise", paramMap);
     }
+
+    public static JSONObject GetWeatherByPoint(GetWeatherByPointParams params) {
+        Map<String, Object> paramMap = BeanUtil.beanToMap(params);
+        return getMethodJson("GetWeatherByPoint", paramMap);
+    }
 }
