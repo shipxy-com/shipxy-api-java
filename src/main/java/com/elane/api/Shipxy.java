@@ -200,4 +200,9 @@ public class Shipxy {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         return getMethodJson("GetShipTrack", paramMap);
     }
+
+    public static JSONObject SearchshipApproach(SearchshipApproachParams params) {
+        Map<String, Object> paramMap = BeanUtil.beanToMap(params);
+        return getMethodJson("SearchshipApproach", paramMap);
+    }
 }

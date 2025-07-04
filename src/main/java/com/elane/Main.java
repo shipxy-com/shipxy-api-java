@@ -20,8 +20,10 @@ public class Main {
 //        SearchPortFn();
 //        GetBerthShipsFn();
 //        GetAnchorShipsFn();
+
 //        GetETAShipsFn();
-        GetShipTrackFn();
+//        GetShipTrackFn();
+        SearchshipApproachFn();
     }
 
 
@@ -115,6 +117,16 @@ public class Main {
         params.setStart_time(1746612218);
         params.setEnd_time(1747044218);
         JSONObject result = Shipxy.GetShipTrack(params);
+        System.out.println(result);
+    }
+
+    public static void SearchshipApproachFn() {
+        SearchshipApproachParams params = new SearchshipApproachParams();
+        params.setKey(key);
+        params.setMmsi(477172700);
+        params.setStart_time(1746612218);
+        params.setEnd_time(1747044218);
+        JSONObject result = Shipxy.SearchshipApproach(params);
         System.out.println(result);
     }
 }
