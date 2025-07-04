@@ -3,7 +3,8 @@ package com.elane;
 import cn.hutool.json.JSONObject;
 import com.elane.api.Shipxy;
 import com.elane.params.GetAreaShipParams;
-import com.elane.params.SearchShipParams;
+import com.elane.params.PortParams;
+import com.elane.params.SearchParams;
 
 public class Main {
     private static String key = "484db43a65ec4f87b5b4dcc69e586bf7";
@@ -16,12 +17,15 @@ public class Main {
 //        GetSurRoundingShipFn();
 //        GetAreaShipFn();
 //        GetShipRegistryFn();
-        SearchShipParticularFn();
+//        SearchShipParticularFn();
+
+//        SearchPortFn();
+        GetBerthShipsFn();
     }
 
 
     public static void SearchShipFn() {
-        SearchShipParams params = new SearchShipParams();
+        SearchParams params = new SearchParams();
         params.setKey(key);
         params.setKeywords("cosco");
         params.setMax(2);
@@ -64,6 +68,23 @@ public class Main {
 
     public static void SearchShipParticularFn() {
         JSONObject result = Shipxy.SearchShipParticular(key, 477172700);
+        System.out.println(result);
+    }
+
+    public static void SearchPortFn() {
+        SearchParams params = new SearchParams();
+        params.setKey(key);
+        params.setKeywords("CNS");
+        JSONObject result = Shipxy.SearchPort(params);
+        System.out.println(result);
+    }
+
+    public static void GetBerthShipsFn() {
+        PortParams params = new PortParams();
+        params.setKey(key);
+        params.setPort_code("CNSHG");
+//        params.setShip_type(52);
+        JSONObject result = Shipxy.GetBerthShips(params);
         System.out.println(result);
     }
 }

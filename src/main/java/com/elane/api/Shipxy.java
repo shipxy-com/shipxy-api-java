@@ -6,7 +6,8 @@ import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import com.elane.params.GetAreaShipParams;
-import com.elane.params.SearchShipParams;
+import com.elane.params.PortParams;
+import com.elane.params.SearchParams;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +36,7 @@ public class Shipxy {
      * @param params SearchShipParams
      * @return
      */
-    public static JSONObject SearchShip(SearchShipParams params) {
+    public static JSONObject SearchShip(SearchParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         return postMethod("SearchShip", paramMap);
     }
@@ -137,5 +138,21 @@ public class Shipxy {
         paramMap.put("key", key);
         paramMap.put("mmsi", mmsi);
         return getMethod("SearchShipParticular", paramMap);
+    }
+
+    /**
+     * 2港口查询-2.1港口信息查询
+     * https://hiiau7lsqq.feishu.cn/wiki/DAlUwEn9Zi50gckSv0uc1qsIn6f
+     * @param params
+     * @return
+     */
+    public static JSONObject SearchPort(SearchParams params) {
+        Map<String, Object> paramMap = BeanUtil.beanToMap(params);
+        return getMethod("SearchPort", paramMap);
+    }
+
+    public static JSONObject GetBerthShips(PortParams params) {
+        Map<String, Object> paramMap = BeanUtil.beanToMap(params);
+        return getMethod("GetBerthShips", paramMap);
     }
 }

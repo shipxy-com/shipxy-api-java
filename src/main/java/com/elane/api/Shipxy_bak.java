@@ -5,7 +5,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONUtil;
 import com.elane.params.GetAreaShipParams;
-import com.elane.params.SearchShipParams;
+import com.elane.params.SearchParams;
 import com.elane.result.ResultList;
 import com.elane.result.ResultOne;
 import com.elane.result.SearcheShipResult;
@@ -36,7 +36,7 @@ public class Shipxy_bak {
      * @param params SearchShipParams
      * @return
      */
-    public static ResultList<SearcheShipResult> SearchShip(SearchShipParams params) {
+    public static ResultList<SearcheShipResult> SearchShip(SearchParams params) {
         Map<String, Object> paramMap = BeanUtil.beanToMap(params);
         String resultStr = postMethod("SearchShip", paramMap);
         ResultList<SearcheShipResult> resultObj = JSONUtil.toBean(resultStr, ResultList.class);
